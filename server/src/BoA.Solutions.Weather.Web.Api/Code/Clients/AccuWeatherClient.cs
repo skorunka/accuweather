@@ -85,8 +85,9 @@ namespace BoA.Solutions.Weather.Web.Api.Code.Clients
 				Date = x.Date,
 				TemperatureMin = x.Temperature?.Minimum?.Value,
 				TemperatureMax = x.Temperature?.Maximum?.Value,
+
 				// [FS] TODO: what if Minimum.Unit != Maximum.Unit -> that would mean bug in AccuWeather API I think
-				TemperatureUnit = (x.Temperature?.Minimum?.Unit) ?? (x.Temperature?.Maximum?.Unit)
+				TemperatureUnit = x.Temperature?.Minimum?.Unit ?? x.Temperature?.Maximum?.Unit
 			}).ToList();
 		}
 
