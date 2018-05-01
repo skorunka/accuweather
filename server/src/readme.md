@@ -10,13 +10,12 @@
 
 * Wrap "JsonConvert" for better testability? I wouldndont like that.
 
-## Possible Improvemtns
+## Possible Improvements
 
-* Add paging to "GET: /api/city/search".
-* Add API versioning
-* Add Swagger
+* Add paging to "GET: /api/city/search" for better UX
+* Add API versioning for better maintenance
+* Add Swagger for better APi documentation
 * Add Serilog for better logging
-* Add Application Insight for better tracing and DevOps support
+* Add Azure Application Insights for better tracing and DevOps support
 * Add more Weather providers
-* 
-
+* Add docker for mocking/faking Weather Providers endpoint and add some integration tests or BDD using SpecFlow?
