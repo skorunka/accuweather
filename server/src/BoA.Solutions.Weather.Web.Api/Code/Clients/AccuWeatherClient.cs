@@ -3,6 +3,7 @@ namespace BoA.Solutions.Weather.Web.Api.Code.Clients
 {
 	using System;
 	using System.Collections.Generic;
+	using System.Diagnostics.CodeAnalysis;
 	using System.Linq;
 	using System.Net.Http;
 	using System.Threading.Tasks;
@@ -113,6 +114,7 @@ namespace BoA.Solutions.Weather.Web.Api.Code.Clients
 			return client;
 		}
 
+		[ExcludeFromCodeCoverage]
 		internal class LocationDto
 		{
 			public string Key { get; set; }
@@ -143,6 +145,7 @@ namespace BoA.Solutions.Weather.Web.Api.Code.Clients
 			}
 		}
 
+		[ExcludeFromCodeCoverage]
 		internal class ForecastDto
 		{
 			public DailyForecastDto[] DailyForecasts { get; set; }

@@ -2,6 +2,7 @@
 // ReSharper disable UnusedMember.Global
 namespace BoA.Solutions.Weather.Web.Api
 {
+	using System.Diagnostics.CodeAnalysis;
 	using Code.Clients;
 	using Code.Clients.Core;
 	using Microsoft.AspNetCore.Builder;
@@ -9,6 +10,7 @@ namespace BoA.Solutions.Weather.Web.Api
 	using Microsoft.Extensions.Configuration;
 	using Microsoft.Extensions.DependencyInjection;
 
+	[ExcludeFromCodeCoverage]
 	public class Startup
 	{
 		public Startup(IConfiguration configuration)

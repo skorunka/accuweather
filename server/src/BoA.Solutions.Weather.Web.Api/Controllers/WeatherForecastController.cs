@@ -1,10 +1,12 @@
 ﻿namespace BoA.Solutions.Weather.Web.Api.Controllers
 {
 	using System;
+	using System.Diagnostics.CodeAnalysis;
 	using System.Threading.Tasks;
 	using Code.Clients;
 	using Microsoft.AspNetCore.Mvc;
 
+	[ExcludeFromCodeCoverage]
 	[Route("api/weather-forecast")]
 	public class WeatherForecastController : Controller
 	{
