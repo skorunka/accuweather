@@ -1,5 +1,8 @@
-﻿namespace BoA.Solutions.Weather.Web.Api
+﻿// ReSharper disable ClassNeverInstantiated.Global
+// ReSharper disable UnusedMember.Global
+namespace BoA.Solutions.Weather.Web.Api
 {
+	using Code.Clients.Core;
 	using Microsoft.AspNetCore.Builder;
 	using Microsoft.AspNetCore.Hosting;
 	using Microsoft.Extensions.Configuration;
@@ -14,20 +17,15 @@
 
 		public IConfiguration Configuration { get; }
 
-		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.AddSingleton<IHttpClientFactory, CachedHttpClientFactory>();
+
 			services.AddMvc();
 		}
 
-		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{
-			if (env.IsDevelopment())
-			{
-				app.UseDeveloperExceptionPage();
-			}
-
 			app.UseMvc();
 		}
 	}
