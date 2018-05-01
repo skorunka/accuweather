@@ -8,7 +8,9 @@
 
 * I did follow [Task-based Asynchronous Pattern (TAP)](https://docs.microsoft.com/en-us/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap).
 
-* Wrap "JsonConvert" for better testability? I wouldndont like that.
+* Wrap "JsonConvert" for better testability? I wouldn't do that.
+
+* This app actyally actually  like a proxy so there is not that much to unit tests.
 
 ## Possible Improvements
 
