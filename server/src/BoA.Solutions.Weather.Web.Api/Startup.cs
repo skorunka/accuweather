@@ -2,6 +2,7 @@
 // ReSharper disable UnusedMember.Global
 namespace BoA.Solutions.Weather.Web.Api
 {
+	using Code.Clients;
 	using Code.Clients.Core;
 	using Microsoft.AspNetCore.Builder;
 	using Microsoft.AspNetCore.Hosting;
@@ -19,6 +20,9 @@ namespace BoA.Solutions.Weather.Web.Api
 
 		public void ConfigureServices(IServiceCollection services)
 		{
+			services.Configure<AccuWeatherClientOptions>(this.Configuration.GetSection($"Clients:{nameof(AccuWeatherClientOptions)}"));
+
+			services.AddTransient<IWeatherClient, AccuWeatherClient>();
 			services.AddSingleton<IHttpClientFactory, CachedHttpClientFactory>();
 
 			services.AddMvc();

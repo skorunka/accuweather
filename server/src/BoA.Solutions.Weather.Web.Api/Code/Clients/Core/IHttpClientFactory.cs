@@ -4,6 +4,6 @@
 
 	public interface IHttpClientFactory
 	{
-		HttpClient Create(string endpoint);
+		HttpClient GetForEndpoint(string endpoint);
 	}
 }
