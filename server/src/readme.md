@@ -10,7 +10,7 @@
 
 * Wrap "JsonConvert" for better testability? I wouldn't do that.
 
-* This app actyally actually  like a proxy so there is not that much to unit tests.
+* This app is actually like a proxy so there is not that much to unit tests.
 
 ## Possible Improvements
 
