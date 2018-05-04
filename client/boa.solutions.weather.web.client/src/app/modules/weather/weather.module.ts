@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 import { WeatherRoutingModule } from './weather-routing.module';
 
@@ -8,7 +9,7 @@ import { WeatherListComponent } from './components/weather-list/weather-list.com
 import { WeatherDayComponent } from './components/weather-day/weather-day.component';
 
 @NgModule({
-	imports: [CommonModule, WeatherRoutingModule],
+	imports: [CommonModule, HttpClientModule, WeatherRoutingModule],
 	declarations: [WeatherComponent, WeatherListComponent, WeatherDayComponent],
 	exports: [WeatherComponent]
 })

@@ -5,6 +5,7 @@ namespace BoA.Solutions.Weather.Web.Api
 	using System.Diagnostics.CodeAnalysis;
 	using Code.Clients;
 	using Code.Clients.Core;
+	using Code.Middlewares;
 	using Microsoft.AspNetCore.Builder;
 	using Microsoft.AspNetCore.Hosting;
 	using Microsoft.Extensions.Configuration;
@@ -32,6 +33,7 @@ namespace BoA.Solutions.Weather.Web.Api
 
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{
+			app.UseMiddleware<ApiErrorHandlingMiddleware>();
 			app.UseMvc();
 		}
 	}

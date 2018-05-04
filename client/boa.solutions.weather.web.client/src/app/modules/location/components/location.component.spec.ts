@@ -1,9 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
 
 import { LocationComponent } from './location.component';
 import { FindCityComponent } from './find-city/find-city.component';
 import { FindCityResultsComponent } from './find-city-results/find-city-results.component';
+import { LocationService } from '../services/location.service';
 
 describe('LocationComponent', () => {
 	let component: LocationComponent;
@@ -11,8 +13,9 @@ describe('LocationComponent', () => {
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
+			imports: [FormsModule, HttpClientTestingModule],
 			declarations: [LocationComponent, FindCityComponent, FindCityResultsComponent],
-			imports: [FormsModule]
+			providers: [LocationService],
 		}).compileComponents();
 	}));
 

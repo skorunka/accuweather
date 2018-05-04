@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { LocationService } from '../../services/location.service';
 
 @Component({
 	selector: 'app-location-find-city',
@@ -6,14 +7,17 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./find-city.component.scss']
 })
 export class FindCityComponent implements OnInit {
+	@Output('searchCityResult') public searchCityResult = new EventEmitter<any[]>();
+
 	public searchText: string;
 
-	constructor() { }
+	constructor(private readonly _locationService: LocationService) { }
 
-	public ngOnInit() {
-	}
+	public ngOnInit() { }
 
 	public search() {
-		console.log(this.searchText);
+		this._locationService
+			.findCities(this.searchText)
+			.subscribe(result => this.searchCityResult.emit(result));
 	}
 }

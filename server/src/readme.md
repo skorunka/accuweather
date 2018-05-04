@@ -21,3 +21,4 @@
 * Add Azure Application Insights for better tracing and DevOps support
 * Add more Weather providers
 * Add docker for mocking/faking Weather Providers endpoint and add some integration tests or BDD using SpecFlow?
+* Export models as npm package, so the client can consume and avoid creating them from scrach
