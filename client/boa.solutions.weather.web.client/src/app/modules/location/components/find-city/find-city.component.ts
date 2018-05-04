@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LocationService } from '../../services/location.service';
+import 'rxjs/add/operator/finally';
 
 @Component({
 	selector: 'app-location-find-city',
@@ -9,6 +10,7 @@ import { LocationService } from '../../services/location.service';
 export class FindCityComponent implements OnInit {
 	@Output('searchCityResult') public searchCityResult = new EventEmitter<any[]>();
 
+	public working = false;
 	public searchText: string;
 
 	constructor(private readonly _locationService: LocationService) { }
@@ -16,8 +18,11 @@ export class FindCityComponent implements OnInit {
 	public ngOnInit() { }
 
 	public search() {
+		this.working = true;
+
 		this._locationService
 			.findCities(this.searchText)
+			.finally(() => this.working = false)
 			.subscribe(result => this.searchCityResult.emit(result));
 	}
 }

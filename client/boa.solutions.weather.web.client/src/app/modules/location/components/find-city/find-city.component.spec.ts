@@ -40,7 +40,7 @@ describe('FindCityComponent', () => {
 		fixture.detectChanges();
 		const button = searchButton();
 
-		expect(button.disabled).toBeTruthy('search button is not disabled');
+		expect(button.disabled).toBeTruthy();
 	});
 
 	it('should enable search button if any text is in search box', () => {
@@ -82,5 +82,24 @@ describe('FindCityComponent', () => {
 		component.search();
 
 		fixture.whenStable().then(() => expect(foundCities).toEqual([{ id: 1, name: 'london' }]));
+	}));
+
+	it('should disable search button before search starts', () => {
+		spyOn(locationService, 'findCities').and.callFake(x => {
+			expect(component.working).toBeTruthy('search button is not disabled');
+			return Observable.of([]);
+		});
+
+		component.searchText = 'text';
+		component.search();
+	});
+
+	it('should enable search button after search ends', async(() => {
+		spyOn(locationService, 'findCities').and.returnValue(Observable.of([]));
+
+		component.searchText = 'text';
+		component.search();
+
+		fixture.whenStable().then(() => expect(component.working).toBeFalsy('search button is disabled'));
 	}));
 });
