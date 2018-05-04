@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { LocationComponent } from './location.component';
+import { FindCityComponent } from './find-city/find-city.component';
+import { FindCityResultsComponent } from './find-city-results/find-city-results.component';
 
 describe('LocationComponent', () => {
 	let component: LocationComponent;
@@ -8,9 +11,9 @@ describe('LocationComponent', () => {
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			declarations: [LocationComponent]
-		})
-			.compileComponents();
+			declarations: [LocationComponent, FindCityComponent, FindCityResultsComponent],
+			imports: [FormsModule]
+		}).compileComponents();
 	}));
 
 	beforeEach(() => {

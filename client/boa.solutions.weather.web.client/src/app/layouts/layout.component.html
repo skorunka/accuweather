@@ -1,5 +1,5 @@
 <main role="main" class="container">
 	<h1>Bank of America Weather Forecast for next 5 days</h1>
-	<app-location [selectedLocationId]="selectedLocationId"></app-location>
-	<app-weather [selectedLocationId]="selectedLocationId"></app-weather>
+	<app-location ([selectedLocationId])="selectedLocationId"></app-location>
+	<app-weather *ngIf="selectedLocationId" [selectedLocationId]="selectedLocationId"></app-weather>
 </main>

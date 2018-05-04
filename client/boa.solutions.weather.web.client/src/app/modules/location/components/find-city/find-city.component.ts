@@ -6,8 +6,14 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./find-city.component.scss']
 })
 export class FindCityComponent implements OnInit {
+	public searchText: string;
+
 	constructor() { }
 
 	public ngOnInit() {
+	}
+
+	public search() {
+		console.log(this.searchText);
 	}
 }

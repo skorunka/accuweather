@@ -1,16 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LayoutComponent } from './layout.component';
+import { LocationModule } from '../modules/location/location.module';
+import { WeatherModule } from '../modules/weather/weather.module';
 
-describe('HomeComponent', () => {
+describe('LayoutComponent', () => {
 	let component: LayoutComponent;
 	let fixture: ComponentFixture<LayoutComponent>;
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			declarations: [LayoutComponent]
-		})
-			.compileComponents();
+			imports: [LocationModule, WeatherModule],
+			declarations: [LayoutComponent],
+		}).compileComponents();
 	}));
 
 	beforeEach(() => {
