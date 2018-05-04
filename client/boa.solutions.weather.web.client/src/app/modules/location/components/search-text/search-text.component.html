@@ -1,0 +1,6 @@
+<div class="input-group">
+	<input [(ngModel)]="text" type="text" class="form-control" [placeholder]="placeholder || ''" />
+	<div class="input-group-append">
+		<button (click)="searchText()" class="btn btn-outline-secondary" type="button" [disabled]="!text || working"><i class="fa fa-search"></i></button>
+	</div>
+</div>

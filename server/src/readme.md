@@ -12,6 +12,8 @@
 
 * This app is actually like a proxy so there is not that much to unit tests.
 
+* CORS is set to `AllowAnyOrigin`
+
 ## Possible Improvements
 
 * Add paging to "GET: /api/city/search" for better UX

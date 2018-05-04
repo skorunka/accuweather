@@ -28,11 +28,14 @@ namespace BoA.Solutions.Weather.Web.Api
 			services.AddTransient<IWeatherClient, AccuWeatherClient>();
 			services.AddSingleton<IHttpClientFactory, CachedHttpClientFactory>();
 
+			services.AddCors();
 			services.AddMvc();
 		}
 
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{
+			app.UseCors(builder => builder.AllowAnyOrigin());
+
 			app.UseMiddleware<ApiErrorHandlingMiddleware>();
 			app.UseMvc();
 		}

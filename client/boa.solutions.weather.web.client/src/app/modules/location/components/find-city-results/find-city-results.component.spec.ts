@@ -23,4 +23,8 @@ describe('FindCityResultsComponent', () => {
 	it('should create', () => {
 		expect(component).toBeTruthy();
 	});
+
+	// it('should display provided results', () => {
+	// 	component.
+	// });
 });

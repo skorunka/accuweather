@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { CityDto } from '../../../../_api/city.dto';
 
 @Component({
 	selector: 'app-location-find-city-results',
@@ -6,6 +8,12 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./find-city-results.component.scss']
 })
 export class FindCityResultsComponent implements OnInit {
+	@Input('working')
+	public working = false;
+
+	@Input('cities')
+	public cities: CityDto[];
+
 	constructor() { }
 
 	public ngOnInit() {
