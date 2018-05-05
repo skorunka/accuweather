@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { WeatherComponent } from './components/weather.component';
 
 const routes: Routes = [
-	{ path: '5days-forecast/{locationId}', component: WeatherComponent },
+	{ path: 'weather/{cityName}/{cityId}', component: WeatherComponent },
 ];
 
 @NgModule({

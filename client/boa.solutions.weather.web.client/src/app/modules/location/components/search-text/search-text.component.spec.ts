@@ -75,6 +75,15 @@ describe('SearchTextComponent', () => {
 		expect(component.search.emit).not.toHaveBeenCalled();
 	});
 
+	it('should not emit text if text is empty', () => {
+		spyOn(component.search, 'emit');
+		component.text = '';
+
+		component.searchText();
+
+		expect(component.search.emit).not.toHaveBeenCalled();
+	});
+
 	it('should emit text on search button click', async(() => {
 		spyOn(component, 'searchText').and.callThrough();
 		component.text = 'text';

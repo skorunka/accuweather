@@ -1,8 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-/**
- * This is just a Presentational component.
- */
+/** Presentational Component */
 @Component({
 	selector: 'app-search-text',
 	templateUrl: './search-text.component.html',
@@ -17,7 +15,6 @@ export class SearchTextComponent implements OnInit {
 
 	@Output('search')
 	public search = new EventEmitter<string>();
-
 
 	public text: string;
 

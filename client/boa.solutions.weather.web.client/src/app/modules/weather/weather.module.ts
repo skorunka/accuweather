@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { WeatherRoutingModule } from './weather-routing.module';
 
+import { WeatherForecastService } from './services/weather-forecast.service';
 import { WeatherComponent } from './components/weather.component';
 import { WeatherListComponent } from './components/weather-list/weather-list.component';
 import { WeatherDayComponent } from './components/weather-day/weather-day.component';
@@ -11,6 +12,7 @@ import { WeatherDayComponent } from './components/weather-day/weather-day.compon
 @NgModule({
 	imports: [CommonModule, HttpClientModule, WeatherRoutingModule],
 	declarations: [WeatherComponent, WeatherListComponent, WeatherDayComponent],
-	exports: [WeatherComponent]
+	exports: [WeatherComponent],
+	providers: [WeatherForecastService]
 })
 export class WeatherModule { }

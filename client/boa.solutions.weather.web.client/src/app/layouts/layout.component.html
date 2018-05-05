@@ -4,6 +4,6 @@
 		<br/>
 		<small class="text-muted">Forecast for next 5 days</small>
 	</h1>
-	<app-location ([selectedLocationId])="selectedLocationId"></app-location>
-	<app-weather *ngIf="selectedLocationId" [selectedLocationId]="selectedLocationId"></app-weather>
+	<app-location ([selectedLocationId])="cityId"></app-location>
+	<app-weather *ngIf="cityId" [cityId]="cityId"></app-weather>
 </main>

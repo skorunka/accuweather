@@ -4,6 +4,7 @@ import 'rxjs/add/operator/finally';
 import { CityDto } from '../../../_api/city.dto';
 import { LocationService } from '../services/location.service';
 
+/** Smart Component */
 @Component({
 	selector: 'app-location',
 	templateUrl: './location.component.html',

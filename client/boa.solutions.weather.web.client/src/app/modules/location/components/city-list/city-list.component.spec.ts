@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
 
 import { CityListComponent } from './city-list.component';
@@ -12,7 +13,7 @@ describe('CityListComponent', () => {
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			imports: [HttpClientTestingModule],
+			imports: [HttpClientTestingModule, RouterTestingModule],
 			declarations: [CityListComponent, CityListItemComponent],
 		}).compileComponents();
 	}));
@@ -33,7 +34,7 @@ describe('CityListComponent', () => {
 		fixture.detectChanges();
 		const noResult = fixture.debugElement.query(By.css('div.alert'));
 
-		expect(noResult).toBeTruthy();
+		expect(noResult).toBeTruthy('`no result` alert was not found');
 	});
 
 	it('should not display `no results` alert if result is not empty', () => {
@@ -42,7 +43,7 @@ describe('CityListComponent', () => {
 		fixture.detectChanges();
 		const noResult = fixture.debugElement.query(By.css('div.alert'));
 
-		expect(noResult == null).toBeTruthy();
+		expect(noResult == null).toBeTruthy('`no result` alert was found');
 	});
 
 	it('should not display `no results` alert if no results were yet provided', () => {
@@ -51,7 +52,7 @@ describe('CityListComponent', () => {
 		fixture.detectChanges();
 		const noResult = fixture.debugElement.query(By.css('div.alert'));
 
-		expect(noResult == null).toBeTruthy();
+		expect(noResult == null).toBeTruthy('`no result` alert was found');
 	});
 
 	it('should display provided results', () => {
@@ -60,7 +61,7 @@ describe('CityListComponent', () => {
 		fixture.detectChanges();
 		const citiyComponents = fixture.debugElement.queryAll(By.css('app-location-city-list-item'));
 
-		expect(citiyComponents.length).toBe(2);
+		expect(citiyComponents.length).toBe(2, 'no city component was found');
 		// we could also check here if we pass city to a corresponsing component
 	});
 
