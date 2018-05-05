@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col">
 		<app-search-text (search)="searchCity($event)" [placeholder]="'Search for city...'" [working]="working"></app-search-text>
-		<app-location-find-city-results [cities]="cities" (citySelected)="citySelected.emit($event)" [working]="working"></app-location-find-city-results>
+		<app-location-city-list [cities]="cities" (citySelected)="citySelected.emit($event)" [working]="working"></app-location-city-list>
 	</div>
 </div>

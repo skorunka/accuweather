@@ -1,12 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { Observable } from 'rxjs/Observable';
 import { FormsModule } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
+
+import { LocationService } from '../services/location.service';
 
 import { LocationComponent } from './location.component';
 import { SearchTextComponent } from './search-text/search-text.component';
-import { FindCityResultsComponent } from './find-city-results/find-city-results.component';
-import { LocationService } from '../services/location.service';
+import { CityListComponent } from './city-list/city-list.component';
+import { CityListItemComponent } from './city-list-item/city-list-item.component';
 
 describe('LocationComponent', () => {
 	let component: LocationComponent;
@@ -16,7 +18,7 @@ describe('LocationComponent', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			imports: [FormsModule, HttpClientTestingModule],
-			declarations: [LocationComponent, SearchTextComponent, FindCityResultsComponent],
+			declarations: [LocationComponent, SearchTextComponent, CityListComponent, CityListItemComponent],
 			providers: [LocationService],
 		}).compileComponents();
 

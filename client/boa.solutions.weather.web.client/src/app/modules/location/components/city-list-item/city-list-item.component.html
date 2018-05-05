@@ -1,0 +1,4 @@
+<li *ngIf="city">
+	{{ city.name }} ({{ city.countryName }}, {{ city.regionName }}, {{ city.administrativeAreaName }} {{ city.administrativeAreaTypeName }})
+	<a [routerLink]="['weather', city.name, city.id]">[select]</a>
+</li>

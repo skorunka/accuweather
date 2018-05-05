@@ -26,6 +26,10 @@ export class SearchTextComponent implements OnInit {
 	public ngOnInit() { }
 
 	public searchText() {
+		if (!this.text) {
+			return;
+		}
+
 		this.search.emit(this.text);
 	}
 }

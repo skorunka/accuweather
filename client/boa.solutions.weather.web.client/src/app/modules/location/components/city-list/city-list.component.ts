@@ -3,11 +3,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CityDto } from '../../../../_api/city.dto';
 
 @Component({
-	selector: 'app-location-find-city-results',
-	templateUrl: './find-city-results.component.html',
-	styleUrls: ['./find-city-results.component.scss']
+	selector: 'app-location-city-list',
+	templateUrl: './city-list.component.html',
+	styleUrls: ['./city-list.component.scss']
 })
-export class FindCityResultsComponent implements OnInit {
+export class CityListComponent implements OnInit {
 	@Input('working')
 	public working = false;
 
@@ -16,6 +16,5 @@ export class FindCityResultsComponent implements OnInit {
 
 	constructor() { }
 
-	public ngOnInit() {
-	}
+	public ngOnInit() { }
 }
