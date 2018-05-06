@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CityDto } from '../_api/city.dto';
+
 /** Container Component */
 @Component({
 	selector: 'app-layout',
@@ -7,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
-	public cityId: string;
+	public city: CityDto;
 
 	constructor() { }
 
-	public ngOnInit() {
+	public ngOnInit() { }
+
+	public citySelected(city: CityDto) {
+		this.city = city;
 	}
 }

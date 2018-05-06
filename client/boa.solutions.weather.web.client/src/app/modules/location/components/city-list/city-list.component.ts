@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, EventEmitter } from '@angular/core';
 
 import { CityDto } from '../../../../_api/city.dto';
 

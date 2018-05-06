@@ -12,15 +12,19 @@ import { LocationService } from '../services/location.service';
 })
 export class LocationComponent implements OnInit {
 	@Output('citySelected')
-	public citySelected = new EventEmitter<string>();
+	public citySelected = new EventEmitter<CityDto>();
 
 	public working = false;
 	public cities: CityDto[];
 
-	constructor(private readonly _locationService: LocationService) { }
-
-	public ngOnInit() {
+	constructor(private readonly _locationService: LocationService) {
+		this._locationService.$selectedCity.subscribe(city => {
+			this.cities = null;
+			this.citySelected.emit(city);
+		});
 	}
+
+	public ngOnInit() { }
 
 	public searchCity(searchText: string) {
 		this.working = true;

@@ -3,6 +3,7 @@ import 'rxjs/add/operator/finally';
 
 import { WeatherForecastDto } from '../../../_api/weatherForecast.dto';
 import { WeatherForecastService } from '../services/weather-forecast.service';
+import { CityDto } from '../../../_api/city.dto';
 
 /** Container/Smart Component */
 @Component({
@@ -11,32 +12,36 @@ import { WeatherForecastService } from '../services/weather-forecast.service';
 	styleUrls: ['./weather.component.scss']
 })
 export class WeatherComponent implements OnInit {
-	@Input('cityId')
-	public get cityId(): string {
-		return this._cityId;
+	@Input('city')
+	public get city(): CityDto {
+		return this._city;
 	}
-	public set cityId(value: string) {
-		this._cityId = value;
+	public set city(value: CityDto) {
+		this._city = value;
 
-		this.getForecast();
+		this.getForecast(this._city);
 	}
 
 	public working = false;
-	public forecast: WeatherForecastDto[];
+	public weatherForecasts: WeatherForecastDto[];
 
-	private _cityId: string;
+	private _city: CityDto;
 
 	constructor(private readonly _weatherForecastService: WeatherForecastService) { }
 
-	public ngOnInit() {
-	}
+	public ngOnInit() { }
 
-	public getForecast() {
+	public getForecast(city: CityDto) {
+		if (!city) {
+			this.weatherForecasts = null;
+			return;
+		}
+
 		this.working = true;
 
 		this._weatherForecastService
-			.getForecastFor5DaysInCity(this._cityId)
+			.getForecastFor5DaysInCity(city.id)
 			.finally(() => this.working = false)
-			.subscribe(result => this.forecast = result);
+			.subscribe(result => this.weatherForecasts = result);
 	}
 }

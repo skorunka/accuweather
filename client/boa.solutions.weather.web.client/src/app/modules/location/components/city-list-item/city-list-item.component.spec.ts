@@ -1,7 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { CityListItemComponent } from './city-list-item.component';
+import { LocationService } from '../../services/location.service';
 
 describe('CityListItemComponent', () => {
 	let component: CityListItemComponent;
@@ -9,8 +11,9 @@ describe('CityListItemComponent', () => {
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			imports: [RouterTestingModule],
-			declarations: [CityListItemComponent]
+			imports: [HttpClientTestingModule, RouterTestingModule],
+			declarations: [CityListItemComponent],
+			providers: [LocationService]
 		}).compileComponents();
 	}));
 

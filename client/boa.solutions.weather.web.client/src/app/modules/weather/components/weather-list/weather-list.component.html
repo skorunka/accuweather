@@ -1,3 +1,5 @@
-<p>
-	weather-list works!
-</p>
+<div class="row">
+	<div class="col">
+		<app-weather-day *ngFor="let weatherForecast of weatherForecasts" [weatherForecast]="weatherForecast"></app-weather-day>
+	</div>
+</div>

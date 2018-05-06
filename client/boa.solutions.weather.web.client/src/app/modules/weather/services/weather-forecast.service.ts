@@ -8,7 +8,7 @@ import { WeatherForecastDto } from '../../../_api/weatherForecast.dto';
 @Injectable()
 export class WeatherForecastService extends ApiServiceBase {
 	constructor(private readonly _http: HttpClient) {
-		super('weather-forecast');
+		super('weather', '/weather-forecast');
 	}
 
 	public getForecastFor5DaysInCity(cityId: string): Observable<WeatherForecastDto[]> {

@@ -5,6 +5,7 @@ import { By } from '@angular/platform-browser';
 
 import { CityListComponent } from './city-list.component';
 import { CityListItemComponent } from '../city-list-item/city-list-item.component';
+import { LocationService } from '../../services/location.service';
 
 describe('CityListComponent', () => {
 	let component: CityListComponent;
@@ -15,6 +16,7 @@ describe('CityListComponent', () => {
 		TestBed.configureTestingModule({
 			imports: [HttpClientTestingModule, RouterTestingModule],
 			declarations: [CityListComponent, CityListItemComponent],
+			providers: [LocationService],
 		}).compileComponents();
 	}));
 
