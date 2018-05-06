@@ -4,6 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { CityListItemComponent } from './city-list-item.component';
 import { LocationService } from '../../services/location.service';
+import { LocationPipe } from '../../pipes/location.pipe';
 
 describe('CityListItemComponent', () => {
 	let component: CityListItemComponent;
@@ -12,7 +13,7 @@ describe('CityListItemComponent', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			imports: [HttpClientTestingModule, RouterTestingModule],
-			declarations: [CityListItemComponent],
+			declarations: [CityListItemComponent, LocationPipe],
 			providers: [LocationService]
 		}).compileComponents();
 	}));

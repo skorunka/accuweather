@@ -2,10 +2,12 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { WeatherForecastService } from '../services/weather-forecast.service';
+import { LocationModule } from '../../location/location.module';
 import { WeatherComponent } from './weather.component';
 import { WeatherListComponent } from './weather-list/weather-list.component';
 import { WeatherDayComponent } from './weather-day/weather-day.component';
+import { WeatherForecastService } from '../services/weather-forecast.service';
+import { TemperaturePipe } from '../pipes/temperature.pipe';
 
 describe('WeatherComponent', () => {
 	let component: WeatherComponent;
@@ -13,8 +15,8 @@ describe('WeatherComponent', () => {
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			imports: [HttpClientTestingModule, RouterTestingModule],
-			declarations: [WeatherComponent, WeatherListComponent, WeatherDayComponent],
+			imports: [HttpClientTestingModule, RouterTestingModule, LocationModule],
+			declarations: [WeatherComponent, WeatherListComponent, WeatherDayComponent, TemperaturePipe],
 			providers: [WeatherForecastService]
 		}).compileComponents();
 	}));

@@ -1,14 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WeatherDayComponent } from './weather-day.component';
+import { TemperaturePipe } from '../../pipes/temperature.pipe';
 
-describe('FindCityComponent', () => {
+describe('WeatherDayComponent', () => {
 	let component: WeatherDayComponent;
 	let fixture: ComponentFixture<WeatherDayComponent>;
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
-			declarations: [WeatherDayComponent]
+			declarations: [WeatherDayComponent, TemperaturePipe]
 		}).compileComponents();
 	}));
 

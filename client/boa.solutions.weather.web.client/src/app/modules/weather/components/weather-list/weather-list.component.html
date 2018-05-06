@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col">
-		<app-weather-day *ngFor="let weatherForecast of weatherForecasts" [weatherForecast]="weatherForecast"></app-weather-day>
+	<div class="col" *ngFor="let weatherForecast of weatherForecasts">
+		<app-weather-day [weatherForecast]="weatherForecast"></app-weather-day>
 	</div>
 </div>

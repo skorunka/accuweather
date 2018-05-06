@@ -1,7 +1,6 @@
 <div *ngIf="weatherForecast" class="card">
 	<div class="card-body">
 		<h5 class="card-title">{{ weatherForecast.date | date }}</h5>
-		<p class="card-text">
-			From {{ weatherForecast.temperatureMin | number }} to {{ weatherForecast.temperatureMax | number }} {{ weatherForecast.temperatureUnit }}</p>
+		<p class="card-text">{{ weatherForecast | temperature }}</p>
 	</div>
 </div>

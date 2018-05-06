@@ -1,4 +1,4 @@
-<ul *ngIf="cities?.length && !working">
+<ul *ngIf="cities?.length && !working" class="mt-2">
 	<app-location-city-list-item *ngFor="let city of cities" [city]="city"></app-location-city-list-item>
 </ul>
 <div *ngIf="cities && cities.length < 1" class="alert alert-info mt-2"><i class="fa fa-info-circle"></i> No results.</div>

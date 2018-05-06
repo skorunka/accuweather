@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 
 import { LocationService } from '../services/location.service';
+import { LocationPipe } from '../pipes/location.pipe';
 
 import { LocationComponent } from './location.component';
 import { SearchTextComponent } from './search-text/search-text.component';
@@ -19,7 +20,7 @@ describe('LocationComponent', () => {
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			imports: [FormsModule, HttpClientTestingModule, RouterTestingModule],
-			declarations: [LocationComponent, SearchTextComponent, CityListComponent, CityListItemComponent],
+			declarations: [LocationComponent, SearchTextComponent, CityListComponent, CityListItemComponent, LocationPipe],
 			providers: [LocationService],
 		}).compileComponents();
 
