@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 1. Make suere the Server Side(API) is up and running at `http://localhost:33033/api`.
 2. Run `npm start` and  navigate to `http://localhost:4200/`.
 
-> If you get 503 errors 
+> If you get API errors, check the API readme as the problem might be related to free trial AccuWeather account.
 
 ## Developer's notes
 
