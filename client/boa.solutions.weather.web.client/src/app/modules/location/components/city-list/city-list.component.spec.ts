@@ -2,7 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { By } from '@angular/platform-browser';
+import * as th from '../../../../shared/test/helpers';
 
+import { CityDto } from '../../../../_api/city.dto';
 import { CityListComponent } from './city-list.component';
 import { CityListItemComponent } from '../city-list-item/city-list-item.component';
 import { LocationService } from '../../services/location.service';
@@ -11,9 +13,10 @@ import { LocationPipe } from '../../pipes/location.pipe';
 describe('CityListComponent', () => {
 	let component: CityListComponent;
 	let fixture: ComponentFixture<CityListComponent>;
-	const testCity = { id: 'id', name: 'london', regionName: '', countryName: '', administrativeAreaName: '', administrativeAreaTypeName: '' };
-
-	const detectChangesInclPush = () => { fixture.debugElement.triggerEventHandler('click', null); fixture.detectChanges(); };
+	const testCity: CityDto = {
+		id: 'id', name: 'london', regionName: '',
+		countryName: '', administrativeAreaName: '', administrativeAreaTypeName: ''
+	};
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
@@ -37,7 +40,7 @@ describe('CityListComponent', () => {
 	it('should display `no result` alert if result is empty', () => {
 		component.cities = [];
 
-		detectChangesInclPush();
+		th.detectChangesInclPush(fixture);
 		const noResult = fixture.debugElement.query(By.css('div.alert'));
 
 		expect(noResult).toBeTruthy('`no result` alert was not found');
@@ -64,7 +67,7 @@ describe('CityListComponent', () => {
 	it('should display provided results', () => {
 		component.cities = [testCity, testCity];
 
-		detectChangesInclPush();
+		th.detectChangesInclPush(fixture);
 		const citiyComponents = fixture.debugElement.queryAll(By.css('app-location-city-list-item'));
 
 		expect(citiyComponents.length).toBe(2, 'no city component was found');

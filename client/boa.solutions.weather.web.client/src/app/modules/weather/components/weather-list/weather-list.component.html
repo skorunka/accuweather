@@ -1,4 +1,4 @@
-<div class="row">
+<div *ngIf="weatherForecasts" class="row">
 	<div class="col" *ngFor="let weatherForecast of weatherForecasts">
 		<app-weather-day [weatherForecast]="weatherForecast"></app-weather-day>
 	</div>

@@ -9,6 +9,8 @@ import { WeatherDayComponent } from './weather-day/weather-day.component';
 import { WeatherForecastService } from '../services/weather-forecast.service';
 import { TemperaturePipe } from '../pipes/temperature.pipe';
 
+// NOTE: tests here would be pretty much same as tests in `location.component.spec.ts`. There would be nothing new to demonstrate.
+
 describe('WeatherComponent', () => {
 	let component: WeatherComponent;
 	let fixture: ComponentFixture<WeatherComponent>;

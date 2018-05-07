@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { ComponentBase } from '../shared/components/base.component';
 import { CityDto } from '../_api/city.dto';
@@ -7,7 +7,7 @@ import { CityDto } from '../_api/city.dto';
 @Component({
 	selector: 'app-layout',
 	templateUrl: './layout.component.html',
-	styleUrls: ['./layout.component.scss'],
+	styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent extends ComponentBase {
 	public city: CityDto;

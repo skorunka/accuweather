@@ -1,7 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { WeatherDayComponent } from './weather-day.component';
 import { TemperaturePipe } from '../../pipes/temperature.pipe';
+
+// NOTE: tests here would be pretty much same as tests in `city-list.component.spec.ts`. There would be nothing new to demonstrate.
 
 describe('WeatherDayComponent', () => {
 	let component: WeatherDayComponent;

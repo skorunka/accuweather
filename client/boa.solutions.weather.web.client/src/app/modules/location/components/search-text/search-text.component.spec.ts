@@ -1,5 +1,6 @@
 import { async, ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
+import * as th from '../../../../shared/test/helpers';
 import 'rxjs/add/observable/of';
 
 import { SearchTextComponent } from './search-text.component';
@@ -11,8 +12,6 @@ describe('SearchTextComponent', () => {
 
 	const searchButton = () => fixture.debugElement.nativeElement.querySelector('button');
 	const textInput = () => fixture.debugElement.nativeElement.querySelector('input');
-
-	const detectChangesInclPush = () => { fixture.debugElement.triggerEventHandler('click', null); fixture.detectChanges(); };
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
@@ -44,7 +43,7 @@ describe('SearchTextComponent', () => {
 	it('should enable search button if any text is in search box', () => {
 		component.text = 'text';
 
-		detectChangesInclPush();
+		th.detectChangesInclPush(fixture);
 		const button = searchButton();
 
 		expect(button.disabled).toBeFalsy('search button is disabled');
@@ -64,7 +63,7 @@ describe('SearchTextComponent', () => {
 		component.text = 'text';
 		component.working = false;
 
-		detectChangesInclPush();
+		th.detectChangesInclPush(fixture);
 		const button = searchButton();
 
 		expect(button.disabled).toBeFalsy('search button is disabled');
@@ -94,7 +93,7 @@ describe('SearchTextComponent', () => {
 		let emitedText;
 		component.search.subscribe(x => emitedText = x);
 
-		detectChangesInclPush();
+		th.detectChangesInclPush(fixture);
 		const button = searchButton();
 		button.click();
 
