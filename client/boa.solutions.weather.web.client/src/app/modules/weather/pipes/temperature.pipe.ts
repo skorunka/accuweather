@@ -9,6 +9,18 @@ export class TemperaturePipe implements PipeTransform {
 			return '';
 		}
 
-		return `From ${value.temperatureMin} to ${value.temperatureMax} ${value.temperatureUnit}`;
+		return `From ${value.temperatureMin} to ${value.temperatureMax} ${this.getUnitText(value.temperatureUnit)}`;
+	}
+
+	private getUnitText(unit: string) {
+		if (unit == null) {
+			return '';
+		}
+
+		switch (unit.toUpperCase()) {
+			case 'C': return '℃';
+			case 'F': return '℉';
+			default: return unit;
+		}
 	}
 }

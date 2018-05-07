@@ -10,5 +10,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Developer's notes
 
 - Added HMR, shame it is not added by default.
-- We could extract `working` to redux or some shared service to reduce the nesting
+- We could extract `working` to redux or some shared service to reduce the nesting and simplify design
 
+- notification last message

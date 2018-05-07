@@ -1,19 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
+import { ComponentBase } from '../shared/components/base.component';
 import { CityDto } from '../_api/city.dto';
 
-/** Container Component */
+/** Router Component */
 @Component({
 	selector: 'app-layout',
 	templateUrl: './layout.component.html',
-	styleUrls: ['./layout.component.scss']
+	styleUrls: ['./layout.component.scss'],
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent extends ComponentBase {
 	public city: CityDto;
-
-	constructor() { }
-
-	public ngOnInit() { }
 
 	public citySelected(city: CityDto) {
 		this.city = city;

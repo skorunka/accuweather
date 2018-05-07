@@ -8,7 +8,7 @@ import { CityDto } from '../../../_api/city.dto';
 
 @Injectable()
 export class LocationService extends ApiServiceBase {
-	public $selectedCity = new Subject<CityDto>();
+	public $citySelected = new Subject<CityDto>();
 
 	constructor(private readonly _http: HttpClient) {
 		super('search');

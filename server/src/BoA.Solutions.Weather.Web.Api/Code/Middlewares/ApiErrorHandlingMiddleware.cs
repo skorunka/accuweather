@@ -1,4 +1,5 @@
-﻿namespace BoA.Solutions.Weather.Web.Api.Code.Middlewares
+﻿// ReSharper disable ClassNeverInstantiated.Global
+namespace BoA.Solutions.Weather.Web.Api.Code.Middlewares
 {
 	using System;
 	using System.Collections.Generic;
@@ -36,9 +37,9 @@
 
 		private static Task HandleExceptionAsync(HttpContext context, ILogger logger, Exception exception)
 		{
-			var ticketId = Math.Abs(Guid.NewGuid().GetHashCode());
+			var correlationId = Math.Abs(Guid.NewGuid().GetHashCode());
 
-			logger?.LogError($"TicketId = {ticketId}\n{exception}");
+			logger?.LogError($"CorrelationId = {correlationId}\n{exception}");
 
 			// ignore non-interactive exceptions
 			if (exception is WebSocketException)
@@ -71,13 +72,13 @@
 
 					result = new
 					{
-						ticketId,
+						ticketId = correlationId,
 						errorType = typeof(AggregateException).Name,
 						errorText = exceptionMessages
 					};
 					break;
 				default:
-					result = new { ticketId, errorType = exception.GetType().Name, errorText = exception.Message };
+					result = new { ticketId = correlationId, errorType = exception.GetType().Name, errorText = exception.Message };
 					break;
 			}
 

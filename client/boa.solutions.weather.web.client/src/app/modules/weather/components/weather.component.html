@@ -1,2 +1,5 @@
-<h3 *ngIf="city" class="mt-3">{{ city | location }}</h3>
+<h3 *ngIf="city" class="mt-3">{{ city | location }} <span *ngIf="working" class="fa fa-spinner fa-spin"></span></h3>
+
+<div *ngIf="wasError" class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Error while getting weather forecast. Please try later.</div>
+
 <app-weather-list [weatherForecasts]="weatherForecasts"></app-weather-list>

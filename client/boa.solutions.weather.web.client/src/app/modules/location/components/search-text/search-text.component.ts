@@ -1,12 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 
 /** Presentational Component */
 @Component({
 	selector: 'app-search-text',
 	templateUrl: './search-text.component.html',
-	styleUrls: ['./search-text.component.scss']
+	styleUrls: ['./search-text.component.scss'],
+	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SearchTextComponent implements OnInit {
+export class SearchTextComponent {
 	@Input('working')
 	public working = false;
 
@@ -17,10 +18,6 @@ export class SearchTextComponent implements OnInit {
 	public search = new EventEmitter<string>();
 
 	public text: string;
-
-	constructor() { }
-
-	public ngOnInit() { }
 
 	public searchText() {
 		if (!this.text) {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { WeatherForecastDto } from '../../../../_api/weatherForecast.dto';
 
 /** Presentational Component */
@@ -8,10 +8,6 @@ import { WeatherForecastDto } from '../../../../_api/weatherForecast.dto';
 	styleUrls: ['./weather-list.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WeatherListComponent implements OnInit {
+export class WeatherListComponent {
 	@Input('weatherForecasts') public weatherForecasts: WeatherForecastDto[];
-
-	constructor() { }
-
-	public ngOnInit() { }
 }

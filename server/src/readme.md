@@ -18,9 +18,10 @@
 
 * Add paging to "GET: /api/city/search" for better UX
 * Add API versioning for better maintenance
-* Add Swagger for better APi documentation
+* Add Swagger for better API documentation
 * Add Serilog for better logging
-* Add Azure Application Insights for better tracing and DevOps support
+* Add Azure Application Insights for better tracing and DevOps experience
 * Add more Weather providers
-* Add docker for mocking/faking Weather Providers endpoint and add some integration tests or BDD using SpecFlow?
+* Add docker for mocking/faking Weather Providers endpoint and add some integration tests or BDD using SpecFlow
 * Export models as npm package, so the client can consume and avoid creating them from scrach
+* Better handling of possible bad requests to external APIs

@@ -1,6 +1,9 @@
 <div class="row">
 	<div class="col">
 		<app-search-text (search)="searchCity($event)" [placeholder]="'Search for city...'" [working]="working"></app-search-text>
+
+		<div *ngIf="wasError" class="alert alert-danger  mt-3"><i class="fa fa-exclamation-triangle"></i> Error while finding a city. Please try later.</div>
+
 		<app-location-city-list [cities]="cities" [working]="working"></app-location-city-list>
 	</div>
 </div>

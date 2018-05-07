@@ -1,6 +1,8 @@
 <div class="input-group">
 	<input [(ngModel)]="text" type="text" class="form-control" [placeholder]="placeholder || ''" (keydown.enter)="searchText()" />
 	<div class="input-group-append">
-		<button (click)="searchText()" class="btn btn-outline-secondary" type="button" [disabled]="!text || working"><i class="fa fa-search"></i></button>
+		<button (click)="searchText()" class="btn btn-outline-secondary" type="button" [disabled]="!text || working">
+			<i class="fa" [ngClass]="{ 'fa-search': !working , 'fa-spin fa-spinner' : working}"></i>
+		</button>
 	</div>
 </div>

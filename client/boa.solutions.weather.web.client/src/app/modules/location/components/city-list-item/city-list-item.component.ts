@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { CityDto } from '../../../../_api/city.dto';
 import { LocationService } from '../../services/location.service';
@@ -10,19 +10,17 @@ import { LocationService } from '../../services/location.service';
 	styleUrls: ['./city-list-item.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CityListItemComponent implements OnInit {
+export class CityListItemComponent {
 	@Input('city')
 	public city: CityDto;
 
 	constructor(private readonly _locationService: LocationService) { }
 
-	public ngOnInit() { }
-
-	public citySelected(city: CityDto) {
-		if (!city) {
+	public selectCity(selectedCity: CityDto) {
+		if (!selectedCity) {
 			return;
 		}
 
-		this._locationService.$selectedCity.next(city);
+		this._locationService.$citySelected.next(selectedCity);
 	}
 }

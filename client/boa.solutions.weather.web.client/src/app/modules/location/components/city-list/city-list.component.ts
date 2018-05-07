@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy, EventEmitter } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { CityDto } from '../../../../_api/city.dto';
 
@@ -9,14 +9,10 @@ import { CityDto } from '../../../../_api/city.dto';
 	styleUrls: ['./city-list.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CityListComponent implements OnInit {
+export class CityListComponent {
 	@Input('working')
 	public working = false;
 
 	@Input('cities')
 	public cities: CityDto[];
-
-	constructor() { }
-
-	public ngOnInit() { }
 }
