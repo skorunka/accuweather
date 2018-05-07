@@ -13,12 +13,15 @@ describe('CityListComponent', () => {
 	let fixture: ComponentFixture<CityListComponent>;
 	const testCity = { id: 'id', name: 'london', regionName: '', countryName: '', administrativeAreaName: '', administrativeAreaTypeName: '' };
 
+	const detectChangesInclPush = () => { fixture.debugElement.triggerEventHandler('click', null); fixture.detectChanges(); };
+
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			imports: [HttpClientTestingModule, RouterTestingModule],
 			declarations: [CityListComponent, CityListItemComponent, LocationPipe],
 			providers: [LocationService],
 		}).compileComponents();
+		TestBed.overrideComponent(CityListComponent, { set: { host: { '(click)': 'OnPushFix' } } }).createComponent(CityListComponent);
 	}));
 
 	beforeEach(() => {
@@ -34,7 +37,7 @@ describe('CityListComponent', () => {
 	it('should display `no result` alert if result is empty', () => {
 		component.cities = [];
 
-		fixture.detectChanges();
+		detectChangesInclPush();
 		const noResult = fixture.debugElement.query(By.css('div.alert'));
 
 		expect(noResult).toBeTruthy('`no result` alert was not found');
@@ -61,7 +64,7 @@ describe('CityListComponent', () => {
 	it('should display provided results', () => {
 		component.cities = [testCity, testCity];
 
-		fixture.detectChanges();
+		detectChangesInclPush();
 		const citiyComponents = fixture.debugElement.queryAll(By.css('app-location-city-list-item'));
 
 		expect(citiyComponents.length).toBe(2, 'no city component was found');

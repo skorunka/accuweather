@@ -13,6 +13,6 @@ describe('TemperaturePipe', () => {
 
 	it('return formatted forecast', () => {
 		const pipe = new TemperaturePipe();
-		expect(pipe.transform({	date: null, temperatureMin: -10, temperatureMax: 20, temperatureUnit: 'F'})).toEqual('From -10 to 20 F');
+		expect(pipe.transform({	date: null, temperatureMin: -10, temperatureMax: 20, temperatureUnit: 'F'})).toEqual('From -10 to 20 ℉');
 	});
 });
