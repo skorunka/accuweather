@@ -1,7 +1,7 @@
 # Developer`s notes
 
 * If we would be using ASP.NET Core 2.1 we could use the [new HttpClientFactory](https://blogs.msdn.microsoft.com/webdev/2018/02/28/asp-net-core-2-1-preview1-introducing-httpclient-factory/).
-  Unfortunately VS 15.6.7, the version I'm using, does not support ASP.NET Core 2.1 out of the box yet.
+  Unfortunately VS 15.6.7, the version I'm using, does not support ASP.NET Core 2.1 out of the box.
 
 * Disposing or not reusing HttpClient is [bad practice](https://aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/), that's why I cache it(by endpoint) in `CachedHttpClientFactory` and
   register `CachedHttpClientFactory` as Singleton.
