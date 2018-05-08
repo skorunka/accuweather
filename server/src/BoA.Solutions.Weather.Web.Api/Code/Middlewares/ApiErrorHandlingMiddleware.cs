@@ -3,6 +3,7 @@ namespace BoA.Solutions.Weather.Web.Api.Code.Middlewares
 {
 	using System;
 	using System.Collections.Generic;
+	using System.Diagnostics.CodeAnalysis;
 	using System.Net;
 	using System.Net.WebSockets;
 	using System.Threading.Tasks;
@@ -10,6 +11,8 @@ namespace BoA.Solutions.Weather.Web.Api.Code.Middlewares
 	using Microsoft.Extensions.Logging;
 	using Newtonsoft.Json;
 
+	// reusing code from external solution which was Unit Tested there
+	[ExcludeFromCodeCoverage]
 	public class ApiErrorHandlingMiddleware
 	{
 		private readonly RequestDelegate next;

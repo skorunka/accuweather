@@ -14,6 +14,8 @@
 
 * CORS is set to `AllowAnyOrigin`
 
+> If AccuWeatherClient starts returning 503 then the free request limit per day was reached. Try to use alternate API key (see `appsettings.json`)
+
 ## Possible Improvements
 
 * Add paging to "GET: /api/city/search" for better UX
